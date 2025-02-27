@@ -1,0 +1,26 @@
+spring:
+  profiles:
+    active: ${SPRING_PROFILE_ACTIVE:dev}
+  application:
+    name: pet-care
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: ${URL_DB}
+    username: ${USER_DB}
+    password: ${PASS_DB}
+
+    hikari:
+      connection-timeout: 60000   # 60 segundos para obtener una conexión
+      maximum-pool-size: 100      # Tamaño máximo del pool de conexiones
+      minimum-idle: 5             # Mínimo de conexiones ociosas en el pool
+      idle-timeout: 10000         # Tiempo máximo que una conexión puede estar ociosa antes de ser eliminada
+      max-lifetime: 300000        # Tiempo máximo que una conexión puede vivir
+      auto-commit: true           # Auto-commit activado
+      leak-detection-threshold: 20000  # Detección de conexiones con fugas (20 segundos)
+
+
+server:
+  port: ${PORT:8080}
+  servlet:
+    context-path: /pet-care
+

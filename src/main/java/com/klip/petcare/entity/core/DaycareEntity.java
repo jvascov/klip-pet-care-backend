@@ -20,7 +20,7 @@ public class DaycareEntity extends GenericEntity {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "ID", nullable = false)
+    @JoinColumn(name = "pet", nullable = false)
     private PetEntity pet;
 
     @ManyToOne

@@ -32,7 +32,7 @@ public class PetEntity extends GenericEntity {
 
     @Column(name = "SPECIES", length = 20, nullable = false)
     @Size(max = 20, min = 4)
-    private String Species;
+    private String species;
 
     @Column(name = "COLOR", length = 20, nullable = false)
     @Size(max = 20, min = 4)

@@ -11,10 +11,6 @@ import lombok.EqualsAndHashCode;
 @Data
 public class PersonEntity extends GenericEntity {
 
-    @Column(name = "DOCUMENT", length = 20, nullable = false)
-    @Size(max = 12, min = 8)
-    private String docNumber;
-
     @Column(name = "NAMES", length = 50, nullable = false)
     @Size(max = 20, min = 8)
     private String names;
