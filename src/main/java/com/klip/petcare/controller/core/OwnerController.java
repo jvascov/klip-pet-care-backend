@@ -4,6 +4,7 @@ import com.klip.petcare.controller.commons.CustomResponse;
 import com.klip.petcare.controller.exceptions.ControllerException;
 import com.klip.petcare.controller.exceptions.NotContentException;
 import com.klip.petcare.dto.response.OwnerResponseDTO;
+import com.klip.petcare.service.base.ServiceException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -28,7 +29,7 @@ public interface OwnerController {
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
     @GetMapping(value = "")
-    ResponseEntity<CustomResponse> findAllOwners(
+    ResponseEntity<CustomResponse> findAll(
 
-    ) throws ControllerException, NotContentException;
+    ) throws ControllerException, NotContentException, ServiceException;
 }

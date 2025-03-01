@@ -1,10 +1,16 @@
 package com.klip.petcare.dto.response;
 
+
+import lombok.Data;
+import lombok.Getter;
+
+@Data
+@Getter
 public class OwnerResponseDTO {
 
 
     private String id;
-    private String docNumber;
+    private String document;
     private String names;
     private String surnames;
     private String email;

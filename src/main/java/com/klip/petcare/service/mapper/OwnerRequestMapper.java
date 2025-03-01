@@ -8,9 +8,9 @@ import org.mapstruct.Mapping;
 @Mapper(
         componentModel = "spring"
 )
-public interface OwnerMapper {
+public interface OwnerRequestMapper {
 
-    @Mapping(target = "id", ignore = true)
+    //@Mapping(target = "id", ignore = true)
     OwnerEntity toEntity(OwnerRequestDTO ownerRequestDTO);
 
     OwnerRequestDTO toDto(OwnerEntity ownerEntity);

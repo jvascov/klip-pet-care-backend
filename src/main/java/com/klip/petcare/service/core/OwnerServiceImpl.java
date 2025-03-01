@@ -1,38 +1,42 @@
 package com.klip.petcare.service.core;
 
 import com.klip.petcare.dto.request.OwnerRequestDTO;
+import com.klip.petcare.dto.response.OwnerResponseDTO;
 import com.klip.petcare.entity.core.OwnerEntity;
 import com.klip.petcare.repository.jpa.core.OwnerRepository;
 import com.klip.petcare.service.base.ServiceException;
-import com.klip.petcare.service.mapper.OwnerMapper;
+import com.klip.petcare.service.mapper.OwnerRequestMapper;
+import com.klip.petcare.service.mapper.OwnerResponseMapper;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
 public class OwnerServiceImpl implements OwnerService {
 
-    private static OwnerRepository ownerRepository;
-    private static OwnerMapper ownerMapper;
+    private OwnerRepository ownerRepository;
+    private OwnerRequestMapper ownerRequestMapper;
+    private OwnerResponseMapper ownerResponseMapper;
 
 
     @Override
-    public List<OwnerRequestDTO> findAll() throws ServiceException {
+    public List<OwnerResponseDTO> findAll() throws ServiceException {
 
-        return ownerRepository.findAll().stream().map(ownerMapper::toDto).collect(Collectors.toList());
+        return ownerRepository.findAll().stream().map(ownerResponseMapper::toDto).collect(Collectors.toList());
 
     }
 
     @Override
-    public OwnerRequestDTO findById(Integer id) throws ServiceException {
+    public OwnerResponseDTO findById(Integer id) throws ServiceException {
 
-        return ownerMapper.toDto(ownerRepository.findById(id).orElse(null));
+        return ownerResponseMapper.toDto(ownerRepository.findById(id).orElse(null));
     }
 
     @Override
     public Integer save(OwnerRequestDTO ownerRequestDTO) throws ServiceException {
 
-        OwnerEntity owner = ownerRepository.save(ownerMapper.toEntity(ownerRequestDTO));
+        OwnerEntity owner = ownerRepository.save(ownerRequestMapper.toEntity(ownerRequestDTO));
 
         return owner.getId();
     }
@@ -40,9 +44,10 @@ public class OwnerServiceImpl implements OwnerService {
     @Override
     public Integer update(OwnerRequestDTO ownerRequestDTO, Integer id) throws ServiceException {
 
-        OwnerEntity ownerUpdated = ownerRepository.save(ownerMapper.toEntity(ownerRequestDTO));
+        OwnerEntity ownerUpdated = ownerRepository.save(ownerRequestMapper.toEntity(ownerRequestDTO));
 
         return ownerUpdated.getId();
     }
 
 }
+
