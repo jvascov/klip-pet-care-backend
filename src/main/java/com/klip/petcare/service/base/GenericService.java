@@ -7,11 +7,10 @@ public interface GenericService<T, R> {
 
     List<T> findAll() throws ServiceException;
 
-    Optional<T> findById(R r) throws ServiceException;
+    T findById(R r) throws ServiceException;
 
     R save(T t) throws ServiceException;
 
-    R update(T t) throws ServiceException;
+    R update(T t, R r) throws ServiceException;
 
-    R delete(T t) throws ServiceException;
 }
