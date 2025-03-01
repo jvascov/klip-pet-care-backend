@@ -18,7 +18,7 @@ public class DaycareEventEntity extends GenericEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sqDaycareEvent")
     @SequenceGenerator(sequenceName = "SQ_DAYCARE_EVENT", allocationSize = 1, name = "sqDaycareEvent")
     @Column(name = "ID")
-    private Long id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "daycare", referencedColumnName = "ID", nullable = false)

@@ -22,22 +22,22 @@ public class OwnerServiceImpl implements OwnerService {
     }
 
     @Override
-    public Optional<OwnerRequestDTO> findById(OwnerRequestDTO ownerRequestDTO) throws ServiceException {
+    public Optional<OwnerRequestDTO> findById(Integer id) throws ServiceException {
         return Optional.empty();
     }
 
     @Override
-    public Long save(OwnerRequestDTO ownerRequestDTO) throws ServiceException {
-        return 0L;
+    public Integer save(OwnerRequestDTO ownerRequestDTO) throws ServiceException {
+        return null;
     }
 
     @Override
-    public Long update(OwnerRequestDTO ownerRequestDTO) throws ServiceException {
-        return 0L;
+    public Integer update(OwnerRequestDTO ownerRequestDTO) throws ServiceException {
+        return null;
     }
 
     @Override
-    public Long delete(OwnerRequestDTO ownerRequestDTO) throws ServiceException {
-        return 0L;
+    public Integer delete(OwnerRequestDTO ownerRequestDTO) throws ServiceException {
+        return null;
     }
 }

@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class OwnerControllerImpl implements OwnerController {
-    public static final OwnerService ownerService;
+    //public static final OwnerService ownerService;
 
     @Override
     public ResponseEntity<CustomResponse> findAllOwners() throws ControllerException, NotContentException {
 
-        OwnerResponseDTO ownerResponseDTO = ownerService.findAll()
+        //OwnerResponseDTO ownerResponseDTO = ownerService.findAll()
 
         return null;
     }

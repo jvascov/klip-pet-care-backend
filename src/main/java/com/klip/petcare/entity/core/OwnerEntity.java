@@ -14,8 +14,10 @@ import lombok.*;
 public class OwnerEntity extends PersonEntity {
 
     @Id
-    @Column(name = "DOCUMENT", nullable = false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sqOwner")
     @SequenceGenerator(sequenceName = "SQ_OWNER", allocationSize = 1, name = "sqOwner")
+    private Integer id;
+
+    @Column(name = "DOCUMENT", nullable = false)
     private String document;
 }

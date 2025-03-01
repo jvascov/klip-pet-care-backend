@@ -20,7 +20,7 @@ public class PetEntity extends GenericEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sqPet")
     @SequenceGenerator(sequenceName = "SQ_PET", allocationSize = 1, initialValue = 1, name = "sqPet")
     @Column(name = "ID")
-    private Long id;
+    private Integer id;
 
     @Column(name = "NAME", length = 50, nullable = false)
     @Size(max = 20, min = 3)

@@ -10,7 +10,7 @@ public class OwnerRequestDTO {
     @NotBlank(message = "docNumber is required")
     @Size(min = 8, max = 20, message = "docNumber must have between 8 and 20 characters")
     @NotNull(message = "docNumber cannot be null")
-    private String docNumber;
+    private String document;
 
     @NotBlank(message = "names is required")
     @Size(min = 8, max = 20, message = "names must have between 8 and 12 characters")

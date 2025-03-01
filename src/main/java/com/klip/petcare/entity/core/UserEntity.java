@@ -16,5 +16,5 @@ public class UserEntity extends PersonEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sqUser")
     @SequenceGenerator(sequenceName = "SQ_USER", allocationSize = 1, initialValue = 1, name = "sqUser")
-    private int id;
+    private Integer id;
 }

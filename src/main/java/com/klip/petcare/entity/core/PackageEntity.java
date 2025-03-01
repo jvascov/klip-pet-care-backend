@@ -20,7 +20,7 @@ public class PackageEntity extends GenericEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sqPackage")
     @SequenceGenerator(sequenceName = "SQ_PACKAGE", allocationSize = 1, name = "sqPackage")
     @Column(name = "ID")
-    private Long id;
+    private Integer id;
 
     @Column(name = "TITLE", nullable = false, length = 30)
     @Size(max = 15, min = 5)
