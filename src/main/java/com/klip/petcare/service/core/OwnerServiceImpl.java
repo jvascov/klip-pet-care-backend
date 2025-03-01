@@ -4,6 +4,7 @@ import com.klip.petcare.dto.request.OwnerRequestDTO;
 import com.klip.petcare.entity.core.OwnerEntity;
 import com.klip.petcare.repository.jpa.core.OwnerRepository;
 import com.klip.petcare.service.base.ServiceException;
+import com.klip.petcare.service.mapper.OwnerMapper;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,12 +12,13 @@ import java.util.Optional;
 public class OwnerServiceImpl implements OwnerService {
 
     private static OwnerRepository ownerRepository;
+    private static OwnerMapper ownerMapper;
 
 
     @Override
     public List<OwnerRequestDTO> findAll() throws ServiceException {
 
-        List<OwnerEntity> owners = ownerRepository.findAll();
+
 
         return List.of();
     }
