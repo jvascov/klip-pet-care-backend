@@ -6,6 +6,7 @@ import com.klip.petcare.controller.exceptions.NotContentException;
 import com.klip.petcare.dto.response.OwnerResponseDTO;
 import com.klip.petcare.service.base.ServiceException;
 import com.klip.petcare.service.core.OwnerService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +18,12 @@ import static com.klip.petcare.controller.constants.ApiMessage.API_MSG_RESPONSE_
 @RestController
 public class OwnerControllerImpl implements OwnerController {
 
-    @Autowired
-    private OwnerService ownerService;
+
+    private final OwnerService ownerService;
+
+    public OwnerControllerImpl(OwnerService ownerService) {
+        this.ownerService = ownerService;
+    }
 
     @Override
     public ResponseEntity<CustomResponse> findAll() throws ControllerException, NotContentException, ServiceException {
