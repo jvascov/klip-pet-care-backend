@@ -21,11 +21,11 @@ public class GenericEntity {
 
     @CreatedDate
     @Column(name = "CREATED_AT")
-    protected LocalDateTime created_at;
+    protected LocalDateTime createdAt;
 
     @LastModifiedBy
     @Column(name = "UPDATED_AT")
-    protected LocalDateTime updated_at;
+    protected LocalDateTime updatedAt;
 
 
 }

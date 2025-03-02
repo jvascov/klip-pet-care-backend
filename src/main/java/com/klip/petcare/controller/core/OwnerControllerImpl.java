@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Date;
 import java.util.List;
 
 import static com.klip.petcare.controller.constants.ApiMessage.API_MSG_RESPONSE_CONSULTA;
@@ -35,10 +37,11 @@ public class OwnerControllerImpl implements OwnerController {
         }
 
         CustomResponse response = CustomResponse.builder()
-                .message(API_MSG_RESPONSE_CONSULTA)
+                .message(API_MSG_RESPONSE_CONSULTA + onwerList.size() + "]")
                 .httpCode(HttpStatus.OK.value() + " - " + HttpStatus.OK.getReasonPhrase() )
                 .uri("/owners")
                 .data(onwerList)
+                .dataTime( new Date().toString().formatted("DD/MM/YYYY HH:mm:ss"))
                 .build();
 
         return ResponseEntity.ok(response);

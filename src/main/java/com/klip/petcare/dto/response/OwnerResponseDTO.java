@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -16,11 +18,13 @@ import lombok.Setter;
 public class OwnerResponseDTO {
 
 
-    //private String id;
+    private String id;
     private String document;
     private String names;
     private String surnames;
     private String email;
     private String phone;
     private String address;
+    private LocalDate createdAt;
+    private LocalDate updatedAt;
 }

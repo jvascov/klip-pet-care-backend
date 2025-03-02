@@ -11,6 +11,7 @@ import org.mapstruct.Mapping;
 )
 public interface OwnerResponseMapper {
 
+    @Mapping(source = "id", target = "id")
     @Mapping(source = "document", target = "document")
     @Mapping(source = "names", target = "names")
     @Mapping(source = "surnames", target = "surnames")
@@ -19,13 +20,15 @@ public interface OwnerResponseMapper {
     @Mapping(source = "address", target = "address")
     OwnerEntity toEntity(OwnerResponseDTO dto);
 
-    //@Mapping(source = "id", target = "id", ignore = true)
+    @Mapping(source = "id", target = "id")
     @Mapping(source = "document", target = "document")
     @Mapping(source = "names", target = "names")
     @Mapping(source = "surnames", target = "surnames")
     @Mapping(source = "email", target = "email")
     @Mapping(source = "phone", target = "phone")
     @Mapping(source = "address", target = "address")
+    @Mapping(source = "createdAt", target = "createdAt")
+    @Mapping(source = "updatedAt", target = "updatedAt")
     OwnerResponseDTO toDto(OwnerEntity entity);
 
 
