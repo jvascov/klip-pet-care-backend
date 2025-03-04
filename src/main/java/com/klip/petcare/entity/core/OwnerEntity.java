@@ -1,7 +1,9 @@
 package com.klip.petcare.entity.core;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.*;
+
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -20,4 +22,8 @@ public class OwnerEntity extends PersonEntity {
 
     @Column(name = "DOCUMENT", nullable = false)
     private String document;
+
+    @Column(name = "STATUS", length = 15)
+    @Size(max = 15, min = 3, message = "Size not allowed")
+    private String status ;
 }

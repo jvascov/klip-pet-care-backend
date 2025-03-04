@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.klip.petcare.service.enums.Status.ACTIVE;
+
 @Service
 @AllArgsConstructor
 public class OwnerServiceImpl implements OwnerService {
@@ -38,6 +40,7 @@ public class OwnerServiceImpl implements OwnerService {
 
     @Override
     public Integer save(OwnerRequestDTO ownerRequestDTO) throws ServiceException {
+        ownerRequestDTO.setStatus(ACTIVE.name());
 
         OwnerEntity owner = ownerRepository.save(ownerRequestMapper.toEntity(ownerRequestDTO));
 
