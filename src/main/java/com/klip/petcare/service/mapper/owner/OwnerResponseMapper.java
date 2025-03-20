@@ -1,4 +1,4 @@
-package com.klip.petcare.service.mapper;
+package com.klip.petcare.service.mapper.owner;
 
 
 import com.klip.petcare.dto.response.OwnerResponseDTO;

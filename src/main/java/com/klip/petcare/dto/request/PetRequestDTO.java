@@ -16,7 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class PetDTORequest {
+public class PetRequestDTO {
 
     @NotBlank(message = "name is required")
     @Size(min = 3, max = 20, message = "name must have between 3 and 20 characters")
@@ -29,7 +29,7 @@ public class PetDTORequest {
     private String gender;
 
     @NotBlank(message = "species is required")
-    @Size(min = 4, max = 20, message = "species must have between 4 and 20 characters")
+    @Size(min = 2, max = 20, message = "species must have between 4 and 20 characters")
     @NotNull(message = "species cannot be null")
     private String species;
 

@@ -3,6 +3,7 @@ package com.klip.petcare.entity.core;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 
 @EqualsAndHashCode(callSuper = true)
@@ -13,6 +14,7 @@ import lombok.*;
 @NoArgsConstructor
 @Table(name = "OWNERS")
 @Entity(name = "OwnerEntity")
+@SuperBuilder
 public class OwnerEntity extends PersonEntity {
 
     @Id

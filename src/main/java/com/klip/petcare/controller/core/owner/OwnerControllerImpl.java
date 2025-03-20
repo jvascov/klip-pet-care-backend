@@ -1,4 +1,4 @@
-package com.klip.petcare.controller.core;
+package com.klip.petcare.controller.core.owner;
 
 import com.klip.petcare.controller.base.GenericController;
 import com.klip.petcare.controller.commons.CustomResponse;
@@ -7,25 +7,31 @@ import com.klip.petcare.controller.exceptions.NotContentException;
 import com.klip.petcare.dto.request.OwnerRequestDTO;
 import com.klip.petcare.dto.response.OwnerResponseDTO;
 import com.klip.petcare.service.base.ServiceException;
-import com.klip.petcare.service.core.OwnerService;
+import com.klip.petcare.service.core.owner.OwnerException;
+import com.klip.petcare.service.core.owner.OwnerService;
 import jakarta.servlet.http.HttpServletRequest;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import java.util.Collections;
+
 import java.util.List;
 
 @Slf4j
 @RestController
-@AllArgsConstructor
 public class OwnerControllerImpl extends GenericController implements OwnerController {
 
 
     private final OwnerService ownerService;
-    private HttpServletRequest request;
+    private final HttpServletRequest request;
+
+    public OwnerControllerImpl(final
+                               OwnerService ownerService,final HttpServletRequest request) {
+        this.ownerService = ownerService;
+        this.request = request;
+    }
 
     @GetMapping
     public ResponseEntity<CustomResponse> findAll() throws ControllerException, NotContentException, ServiceException {
@@ -52,11 +58,18 @@ public class OwnerControllerImpl extends GenericController implements OwnerContr
     }
 
 
-    public ResponseEntity<CustomResponse> create(@RequestBody OwnerRequestDTO ownerDTO) throws ControllerException, NotContentException, ServiceException {
+    public ResponseEntity<CustomResponse> create(@RequestBody OwnerRequestDTO ownerDTO, BindingResult result) throws ControllerException, NotContentException, ServiceException {
 
+        if ((result.hasErrors())) {
+            throw  new ControllerException(String.valueOf(result));
+        }
+
+        try {
             Integer id = ownerService.save(ownerDTO);
-            return getResponse(Collections.singletonList(id), request.getRequestURI());
-
+            return super.created(id, request.getRequestURI());
+        }catch (OwnerException e) {
+            return (ResponseEntity<CustomResponse>) super.internalError();
+        }
     }
 
 

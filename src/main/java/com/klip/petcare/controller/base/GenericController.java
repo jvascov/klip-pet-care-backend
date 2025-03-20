@@ -14,6 +14,7 @@ import java.util.Map;
 
 import static com.klip.petcare.util.CollectionValid.isContent;
 import static com.klip.petcare.controller.constants.ApiMessage.API_MSG_RESPONSE_CONSULTA;
+import static com.klip.petcare.controller.constants.ApiMessage.API_MSG_RESPONSE_CREATED;
 import static java.util.Objects.isNull;
 
 
@@ -28,10 +29,24 @@ public abstract class GenericController {
         CustomResponse response = CustomResponse.builder()
                 .message(API_MSG_RESPONSE_CONSULTA + data.size() + "]")
                 .uri(uri)
-                .httpCode(HttpStatus.OK.value() + "-" + HttpStatus.OK.name()).dataTime(LocalDateTime.now().toString())
+                .httpCode(HttpStatus.OK.value() + "-" + HttpStatus.OK.name())
+                .dataTime(LocalDateTime.now().toString())
                 .data(data).build();
 
         return ResponseEntity.ok(response);
+    }
+
+    protected ResponseEntity<CustomResponse> created(Object data, String uri) {
+        CustomResponse response = CustomResponse.builder()
+                .message(API_MSG_RESPONSE_CREATED)
+                .uri(uri)
+                .httpCode(HttpStatus.CREATED.value() + "-" + HttpStatus.CREATED.name())
+                .dataTime(LocalDateTime.now().toString())
+                .data(data)
+                .build();
+
+        return ResponseEntity.ok(response);
+
     }
 
     protected ControllerException getException(Exception e) {

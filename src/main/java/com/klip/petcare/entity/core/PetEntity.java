@@ -13,13 +13,13 @@ import lombok.Setter;
 @Setter
 @Table(name = "PETS")
 @Entity(name = "PetEntity")
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 public class PetEntity extends GenericEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sqPet")
-    @SequenceGenerator(sequenceName = "SQ_PET", allocationSize = 1, initialValue = 1, name = "sqPet")
-    @Column(name = "ID")
+    @SequenceGenerator(sequenceName = "SQ_PET", allocationSize = 1, name = "sqPet")
+    //@Column(name = "ID")
     private Integer id;
 
     @Column(name = "NAME", length = 50, nullable = false)
@@ -31,7 +31,7 @@ public class PetEntity extends GenericEntity {
     private String gender;
 
     @Column(name = "SPECIES", length = 20, nullable = false)
-    @Size(max = 20, min = 4)
+    @Size(max = 20, min = 2)
     private String species;
 
     @Column(name = "COLOR", length = 20, nullable = false)
@@ -52,4 +52,7 @@ public class PetEntity extends GenericEntity {
 
     @Column(name = "PHOTO", length = 1000)
     private String photoUrl;
+
+    @Column(name = "STATUS")
+    private String status;
 }
