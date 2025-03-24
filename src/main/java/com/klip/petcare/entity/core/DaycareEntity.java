@@ -11,7 +11,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-@Table(name = "DAYCARE")
+@Table(name = "DAYCARES")
 @Entity(name = "DaycareEntity")
 public class DaycareEntity extends GenericEntity {
 
@@ -25,10 +25,16 @@ public class DaycareEntity extends GenericEntity {
     private PetEntity pet;
 
     @ManyToOne
-    @JoinColumn(name = "PACKAGES", referencedColumnName = "ID", nullable = false)
+    @JoinColumn(name = "PACKAGE", referencedColumnName = "ID", nullable = false)
     private PackageEntity packages;
 
-    @Column(name = "LEFTHOURS")
+    @Column(name = "LEFT_HOURS")
     private Double leftHours;
+
+    @Column(name = "ADDITIONAL_HOURS")
+    private Double additionalHours;
+
+    @Column(name = "STATUS")
+    private String status;
 
 }

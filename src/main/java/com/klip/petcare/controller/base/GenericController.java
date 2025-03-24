@@ -36,6 +36,22 @@ public abstract class GenericController {
         return ResponseEntity.ok(response);
     }
 
+    protected <T> ResponseEntity<CustomResponse> getResponse(T entity, String uri) throws NotContentException {
+        if (entity == null) {
+            throw new NotContentException();
+        }
+
+        CustomResponse response = CustomResponse.<T>builder()
+                .message("Consulta exitosa")
+                .uri(uri)
+                .httpCode(HttpStatus.OK.value() + "-" + HttpStatus.OK.name())
+                .dataTime(LocalDateTime.now().toString())
+                .data(entity)
+                .build();
+
+        return ResponseEntity.ok(response);
+    }
+
     protected ResponseEntity<CustomResponse> created(Object data, String uri) {
         CustomResponse response = CustomResponse.builder()
                 .message(API_MSG_RESPONSE_CREATED)

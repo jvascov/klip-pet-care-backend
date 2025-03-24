@@ -47,11 +47,10 @@ public class OwnerServiceImpl implements OwnerService {
     }
 
     @Override
-    public Integer update(OwnerRequestDTO ownerRequestDTO, Integer id) throws OwnerException {
+    public OwnerResponseDTO update(OwnerRequestDTO ownerRequestDTO, Integer id) throws OwnerException {
 
-        OwnerEntity ownerUpdated = ownerRepository.save(ownerRequestMapper.toEntity(ownerRequestDTO));
+        return ownerResponseMapper.toDto( ownerRepository.save(ownerRequestMapper.toEntity(ownerRequestDTO)));
 
-        return ownerUpdated.getId();
     }
 
 }

@@ -3,9 +3,12 @@ package com.klip.petcare.entity.core;
 import com.klip.petcare.entity.base.GenericEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Data
@@ -14,6 +17,9 @@ import lombok.Setter;
 @Table(name = "PACKAGES")
 @Entity(name = "PackagesEntity")
 @EqualsAndHashCode(callSuper = false)
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class PackageEntity extends GenericEntity {
 
     @Id

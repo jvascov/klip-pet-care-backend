@@ -7,14 +7,12 @@ import com.klip.petcare.entity.core.OwnerEntity;
 import com.klip.petcare.entity.core.PetEntity;
 import com.klip.petcare.repository.jpa.core.OwnerRepository;
 import com.klip.petcare.repository.jpa.core.PetRepository;
-import com.klip.petcare.service.core.owner.OwnerException;
 import com.klip.petcare.service.mapper.pet.PetRequestMapper;
 import com.klip.petcare.service.mapper.pet.PetResponseMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -42,7 +40,7 @@ public class PetServiceImpl implements PetService {
     @Override
     public PetResponseDTO findById(Integer id) throws PetException {
 
-        return petResponseMapper.toDTO(petRepository.findPetById(id));
+        return petResponseMapper.toDTO(petRepository.findPetById(id).orElseThrow(() -> new PetException("Pet not found")));
     }
 
     @Override
@@ -60,9 +58,9 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
-    public Integer update(PetRequestDTO dto, Integer id) {
+    public PetResponseDTO update(PetRequestDTO dto, Integer id) {
 
-        return petRepository.update(petRequestMapper.toEntity(dto));
+        return petResponseMapper.toDTO( petRepository.update(petRequestMapper.toEntity(dto)));
 
     }
 

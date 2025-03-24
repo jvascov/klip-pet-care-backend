@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface PetRepository extends GenericRepository<PetEntity, Integer> {
@@ -17,7 +18,7 @@ public interface PetRepository extends GenericRepository<PetEntity, Integer> {
     List<PetEntity> findAllPets ();
 
     @Query("SELECT p FROM PetEntity p WHERE p.id = :id")
-    PetEntity findPetById (@Param("id") Integer id);
+    Optional<PetEntity> findPetById (@Param("id") Integer id);
 
     @Modifying
     @Transactional
@@ -32,7 +33,7 @@ public interface PetRepository extends GenericRepository<PetEntity, Integer> {
             "p.photoUrl = :#{#pet.photoUrl}, " +
             "p.status = :#{#pet.status} " +
             "WHERE p.id = :#{#pet.id}")
-    Integer update(@Param("pet") PetEntity pet);
+    PetEntity update(@Param("pet") PetEntity pet);
 
     @Modifying
     @Query(nativeQuery = true, value = "UPDATE PETS p SET p.ESTADO = 'DISABLED' WHERE p.STATUS = 'ACTIVE' AND p.ID = :id")

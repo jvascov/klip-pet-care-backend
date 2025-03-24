@@ -8,10 +8,10 @@ public interface GenericService<T, R, U> {
 
     List<U> findAll() throws ServiceException;
 
-    U findById(R id) throws ServiceException;
+    U findById(Integer id) throws ServiceException, NotContentException;
 
     R save(T t) throws ServiceException, NotContentException;
 
-    R update(T t, R id) throws ServiceException;
+    U update(T t, R id) throws ServiceException;
 
 }

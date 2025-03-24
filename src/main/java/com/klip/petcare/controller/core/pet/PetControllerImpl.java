@@ -10,8 +10,10 @@ import com.klip.petcare.entity.core.PetEntity;
 import com.klip.petcare.service.base.ServiceException;
 import com.klip.petcare.service.core.pet.PetService;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -37,9 +39,18 @@ public class PetControllerImpl extends GenericController implements PetControlle
     }
 
     @Override
+    public ResponseEntity<CustomResponse> findById(@PathVariable("id") Integer id) throws NotContentException, ServiceException {
+
+        return getResponse( petService.findById(id), request.getRequestURI());
+
+    }
+
+    @Override
     public ResponseEntity<CustomResponse> create(PetRequestDTO petDTO, BindingResult result) throws ControllerException, NotContentException, ServiceException {
 
         Integer petId = petService.save(petDTO);
         return  super.created(petId, request.getRequestURI());
     }
+
+
 }

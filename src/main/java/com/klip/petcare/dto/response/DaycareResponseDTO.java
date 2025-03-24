@@ -6,19 +6,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class PetResponseDTO {
+public class DaycareResponseDTO {
 
     private Integer id;
-    private String name;
-    private String gender;
-    private String species;
-    private String color;
-    private String size;
-    private String breed;
-    private String owner;
+    private Integer pet;
+    private Integer packages;
+    private Double leftHours;
+    private Double additionalHours;
+    private String status;
 }
