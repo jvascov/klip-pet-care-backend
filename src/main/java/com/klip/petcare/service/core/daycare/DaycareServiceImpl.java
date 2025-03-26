@@ -49,7 +49,7 @@ public class DaycareServiceImpl implements DaycareService {
     }
 
     @Override
-    public Integer save(DaycareRequestDTO daycareRequestDTO) throws ServiceException, NotContentException {
+    public DaycareResponseDTO save(DaycareRequestDTO daycareRequestDTO) throws ServiceException, NotContentException {
 
         Optional<DaycareEntity> optionalDaycare = daycareRepository.findActiveDaycare(daycareRequestDTO.getPet());
 
@@ -73,17 +73,15 @@ public class DaycareServiceImpl implements DaycareService {
         daycare.setStatus(IN_PROGRESS.toString());
         daycare.setAdditionalHours(0.0);
 
-        return daycareRepository.save(daycare).getId();
+        return daycareResponseMapper.toDTO(daycareRepository.save(daycare));
     }
 
     @Override
-    public DaycareResponseDTO update(DaycareRequestDTO daycareRequestDTO, Integer id) throws ServiceException {
+    public DaycareResponseDTO update(Integer id, DaycareRequestDTO daycareRequestDTO) throws ServiceException {
 
-        DaycareEntity existingDaycare = daycareRequestMapper.toEntity(daycareRequestDTO);
+        //DaycareEntity existingDaycare = daycareRequestMapper.toEntity(daycareRequestDTO);
 
-        if (existingDaycare != null) {
-            
-        }
+
 
 
         return null;

@@ -1,6 +1,7 @@
 package com.klip.petcare.service.core.packages;
 
 import com.klip.petcare.controller.exceptions.NotContentException;
+import com.klip.petcare.dto.request.PackageRequestDTO;
 import com.klip.petcare.dto.response.PackageResponseDTO;
 import com.klip.petcare.repository.jpa.core.PackageRepository;
 import com.klip.petcare.service.base.ServiceException;
@@ -34,12 +35,14 @@ public class PackageServiceImpl implements PackageService {
     }
 
     @Override
-    public Integer save(PackageResponseDTO packageResponseDTO) throws ServiceException, NotContentException {
-        return 0;
+    public PackageResponseDTO save(PackageRequestDTO packageRequestDTO) throws ServiceException, NotContentException {
+        return null;
     }
 
     @Override
-    public PackageResponseDTO update(PackageResponseDTO packageResponseDTO, Integer id) throws ServiceException {
+    public PackageResponseDTO update(Integer id, PackageRequestDTO packageRequestDTO) throws ServiceException {
         return null;
     }
+
+
 }

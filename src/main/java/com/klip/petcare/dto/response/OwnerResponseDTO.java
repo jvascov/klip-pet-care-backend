@@ -19,7 +19,7 @@ import java.time.LocalDate;
 public class OwnerResponseDTO {
 
 
-    private String id;
+    private Integer id;
     private String document;
     private String names;
     private String surnames;

@@ -7,6 +7,7 @@ import com.klip.petcare.entity.core.OwnerEntity;
 import com.klip.petcare.entity.core.PetEntity;
 import com.klip.petcare.repository.jpa.core.OwnerRepository;
 import com.klip.petcare.repository.jpa.core.PetRepository;
+import com.klip.petcare.service.base.ServiceException;
 import com.klip.petcare.service.mapper.pet.PetRequestMapper;
 import com.klip.petcare.service.mapper.pet.PetResponseMapper;
 import lombok.AllArgsConstructor;
@@ -44,7 +45,7 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
-    public Integer save(PetRequestDTO petRequestDTO) throws NotContentException {
+    public PetResponseDTO save(PetRequestDTO petRequestDTO) throws NotContentException {
 
         OwnerEntity owner = ownerRepository.findByDocument(petRequestDTO.getOwner()).orElseThrow(() -> new NotContentException("Owner not found"));
 
@@ -54,11 +55,11 @@ public class PetServiceImpl implements PetService {
 
         PetEntity pet = petRepository.save(tempPet);
 
-        return pet.getId();
+        return petResponseMapper.toDTO(pet);
     }
 
     @Override
-    public PetResponseDTO update(PetRequestDTO dto, Integer id) {
+    public PetResponseDTO update(Integer id, PetRequestDTO dto) {
 
         return petResponseMapper.toDTO( petRepository.update(petRequestMapper.toEntity(dto)));
 

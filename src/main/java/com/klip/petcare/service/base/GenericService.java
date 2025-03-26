@@ -4,14 +4,14 @@ import com.klip.petcare.controller.exceptions.NotContentException;
 
 import java.util.List;
 
-public interface GenericService<T, R, U> {
+public interface GenericService<T, R> {
 
-    List<U> findAll() throws ServiceException;
+    List<R> findAll() throws ServiceException;
 
-    U findById(Integer id) throws ServiceException, NotContentException;
+    R findById(Integer id) throws ServiceException, NotContentException;
 
     R save(T t) throws ServiceException, NotContentException;
 
-    U update(T t, R id) throws ServiceException;
+    R update(Integer id, T t) throws ServiceException;
 
 }

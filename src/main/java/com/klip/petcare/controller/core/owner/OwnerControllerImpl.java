@@ -65,7 +65,7 @@ public class OwnerControllerImpl extends GenericController implements OwnerContr
         }
 
         try {
-            Integer id = ownerService.save(ownerDTO);
+            Integer id = ownerService.save(ownerDTO).getId();
             return super.created(id, request.getRequestURI());
         }catch (OwnerException e) {
             return (ResponseEntity<CustomResponse>) super.internalError();

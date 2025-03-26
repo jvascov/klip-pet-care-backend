@@ -48,7 +48,7 @@ public class PetControllerImpl extends GenericController implements PetControlle
     @Override
     public ResponseEntity<CustomResponse> create(PetRequestDTO petDTO, BindingResult result) throws ControllerException, NotContentException, ServiceException {
 
-        Integer petId = petService.save(petDTO);
+        Integer petId = petService.save(petDTO).getId();
         return  super.created(petId, request.getRequestURI());
     }
 

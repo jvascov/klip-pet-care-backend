@@ -38,16 +38,16 @@ public class OwnerServiceImpl implements OwnerService {
     }
 
     @Override
-    public Integer save(OwnerRequestDTO ownerRequestDTO) throws OwnerException {
+    public OwnerResponseDTO save(OwnerRequestDTO ownerRequestDTO) throws OwnerException {
         ownerRequestDTO.setStatus(ACTIVE.name());
 
-        OwnerEntity owner = ownerRepository.save(ownerRequestMapper.toEntity(ownerRequestDTO));
+        return  ownerResponseMapper.toDto(ownerRepository.save(ownerRequestMapper.toEntity(ownerRequestDTO)));
 
-        return owner.getId();
+
     }
 
     @Override
-    public OwnerResponseDTO update(OwnerRequestDTO ownerRequestDTO, Integer id) throws OwnerException {
+    public OwnerResponseDTO update(Integer id, OwnerRequestDTO ownerRequestDTO) throws OwnerException {
 
         return ownerResponseMapper.toDto( ownerRepository.save(ownerRequestMapper.toEntity(ownerRequestDTO)));
 

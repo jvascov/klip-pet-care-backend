@@ -29,7 +29,7 @@ public class DaycareControllerImpl extends GenericController implements DaycareC
     @Override
     public ResponseEntity<CustomResponse> create(DaycareRequestDTO daycareRequest, BindingResult result) throws ControllerException, ServiceException, NotContentException {
 
-        Integer daycareId = daycareService.save(daycareRequest);
+        Integer daycareId = daycareService.save(daycareRequest).getId();
 
         return super.created(daycareId, request.getRequestURI());
     }
