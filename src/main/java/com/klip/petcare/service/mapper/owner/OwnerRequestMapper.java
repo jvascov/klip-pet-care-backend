@@ -1,9 +1,8 @@
-package com.klip.petcare.service.mapper;
+package com.klip.petcare.service.mapper.owner;
 
 import com.klip.petcare.dto.request.OwnerRequestDTO;
 import com.klip.petcare.entity.core.OwnerEntity;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 
 @Mapper(
         componentModel = "spring"

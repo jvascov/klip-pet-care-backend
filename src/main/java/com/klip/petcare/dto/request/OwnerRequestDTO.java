@@ -1,5 +1,8 @@
 package com.klip.petcare.dto.request;
 
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.Nulls;
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -25,17 +28,17 @@ public class OwnerRequestDTO {
     private String document;
 
     @NotBlank(message = "names is required")
-    @Size(min = 8, max = 20, message = "names must have between 8 and 12 characters")
+    @Size(min = 2, max = 100, message = "names must have between 8 and 12 characters")
     @NotNull(message = "names cannot be null")
     private String names;
 
     @NotBlank(message = "surnames is required")
-    @Size(min = 5, max = 20, message = "surnames must have between 5 and 20 characters")
+    @Size(min = 2, max = 100, message = "surnames must have between 5 and 20 characters")
     @NotNull(message = "surnames cannot be null")
     private String surnames;
 
     @NotBlank(message = "email is required")
-    @Size(min = 8, max = 20, message = "email must have between 8 and 20 characters")
+    @Size(min = 2, max = 100, message = "email must have between 8 and 20 characters")
     @Email(message = "email is not valid")
     @NotNull(message = "email cannot be null")
     private String email;
@@ -45,4 +48,7 @@ public class OwnerRequestDTO {
     private String phone;
 
     private String address;
+
+    @Size(max = 10, min = 3, message = "Size not allowed")
+    private String status;
 }

@@ -1,4 +1,4 @@
-package com.klip.petcare.entity.enums;
+package com.klip.petcare.service.enums;
 
 public enum Status {
 
@@ -6,6 +6,7 @@ public enum Status {
     IN_PROGRESS,
     DONE,
     ENABLED,
-    DISABLED,;
+    DISABLED,
+    ACTIVE
 
 }
