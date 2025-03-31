@@ -1,26 +1,32 @@
 package com.klip.petcare.dto.response;
 
-import com.klip.petcare.entity.core.PetEntity;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@SuperBuilder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class DaycareResponseDTO {
+public class EventResponseDTO {
 
     private Integer id;
-    private PetResponseDTO pet;
-    private PackageResponseDTO packages;
-    private BigDecimal leftHours;
-    private BigDecimal additionalHours;
+
+    private DaycareResponseDTO daycare;
+
+    private LocalDateTime startDate;
+
+    private LocalDateTime endDate;
+
+    private BigDecimal totalHours;
+
     private String status;
+
 }

@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -13,5 +15,5 @@ public class PackageResponseDTO {
 
     private Integer id;
     private String title;
-    private Double hours;
+    private BigDecimal hours;
 }

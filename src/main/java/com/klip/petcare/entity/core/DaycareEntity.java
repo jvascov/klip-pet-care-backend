@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.math.BigDecimal;
+
 @Data
 @Getter
 @Setter
@@ -29,7 +31,7 @@ public class DaycareEntity extends GenericEntity {
     private PackageEntity packages;
 
     @Column(name = "LEFT_HOURS")
-    private Double leftHours;
+    private BigDecimal leftHours;
 
     @Column(name = "ADDITIONAL_HOURS")
     private Double additionalHours;

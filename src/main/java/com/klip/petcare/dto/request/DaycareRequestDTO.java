@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -25,9 +27,9 @@ public class DaycareRequestDTO {
     private Integer packages;
 
     @DecimalMin(value = "0.0", message = "leftHours must be a positive number")
-    private Double leftHours;
+    private BigDecimal leftHours;
 
-    private Double additionalHours;
+    private BigDecimal additionalHours;
 
     private String status;
 

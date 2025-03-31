@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 public abstract class GenericEntity {
 
     @CreatedDate
-    @Column(name = "CREATED_AT", updatable = false)
+    @Column(name = "CREATED_AT", updatable = false, nullable = false)
     protected LocalDateTime createdAt;
 
     @LastModifiedDate

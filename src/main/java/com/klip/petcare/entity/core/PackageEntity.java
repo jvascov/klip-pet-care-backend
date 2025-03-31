@@ -11,6 +11,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Data
 @Getter
 @Setter
@@ -33,6 +35,6 @@ public class PackageEntity extends GenericEntity {
     private String title;
 
     @Column(name = "HOURS", nullable = false)
-    private Double hours;
+    private BigDecimal hours;
 
 }
