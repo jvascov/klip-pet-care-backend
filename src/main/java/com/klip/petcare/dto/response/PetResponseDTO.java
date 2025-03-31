@@ -20,5 +20,5 @@ public class PetResponseDTO {
     private String color;
     private String size;
     private String breed;
-    private String owner;
+    private OwnerResponseDTO owner;
 }

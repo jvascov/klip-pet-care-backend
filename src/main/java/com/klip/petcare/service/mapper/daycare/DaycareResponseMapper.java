@@ -8,8 +8,8 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface DaycareResponseMapper {
 
-    @Mapping(source = "pet.id", target = "pet")
-    @Mapping(source = "packages.id", target = "packages")
+    @Mapping(source = "pet", target = "pet")
+    @Mapping(source = "packages", target = "packages")
     @Mapping(source = "leftHours", target = "leftHours")
     @Mapping(source = "additionalHours", target = "additionalHours")
     @Mapping(source = "status", target = "status")

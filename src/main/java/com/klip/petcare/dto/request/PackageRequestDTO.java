@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,5 +23,5 @@ public class PackageRequestDTO {
 
     @NotNull(message = "Las horas no pueden ser nulas")
     @Min(value = 1, message = "Las horas deben ser al menos 1")
-    private Double hours;
+    private BigDecimal hours;
 }

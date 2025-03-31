@@ -18,7 +18,7 @@ public interface PetResponseMapper {
     @Mapping(source = "color", target = "color")
     @Mapping(source = "size", target = "size")
     @Mapping(source = "breed", target = "breed")
-    @Mapping(source = "owner", target = "owner.document")
+    @Mapping(source = "owner", target = "owner")
     //@Mapping(source = "photoUrl", target = "photoUrl")
     PetEntity toEntity(PetResponseDTO dto);
 
@@ -28,7 +28,7 @@ public interface PetResponseMapper {
     @Mapping(source = "color", target = "color")
     @Mapping(source = "size", target = "size")
     @Mapping(source = "breed", target = "breed")
-    @Mapping(source = "owner.document", target = "owner")
+    @Mapping(source = "owner", target = "owner")
     //@Mapping(source = "photoUrl", target = "photoUrl")
     PetResponseDTO toDTO(PetEntity entity);
 }

@@ -6,11 +6,11 @@ import com.klip.petcare.controller.exceptions.ControllerException;
 import com.klip.petcare.controller.exceptions.NotContentException;
 import com.klip.petcare.dto.request.PetRequestDTO;
 import com.klip.petcare.dto.response.PetResponseDTO;
-import com.klip.petcare.entity.core.PetEntity;
 import com.klip.petcare.service.base.ServiceException;
 import com.klip.petcare.service.core.pet.PetService;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.data.repository.query.Param;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +24,9 @@ public class PetControllerImpl extends GenericController implements PetControlle
 
     private final PetService petService;
     private final HttpServletRequest request;
+
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(PetControllerImpl.class);
 
     public PetControllerImpl(final PetService petService, final HttpServletRequest request) {
         this.petService = petService;

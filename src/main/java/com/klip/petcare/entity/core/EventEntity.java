@@ -3,16 +3,19 @@ package com.klip.petcare.entity.core;
 import com.klip.petcare.entity.base.GenericEntity;
 import jakarta.persistence.*;
 import lombok.*;
-import java.util.Date;
 
-@Data
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table(name = "DAYCARE_EVENTS")
-@Entity(name = "DaycareEventEntity")
-public class DaycareEventEntity extends GenericEntity {
+@Entity(name = "EventEntity")
+public class EventEntity extends GenericEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sqDaycareEvent")
@@ -25,11 +28,14 @@ public class DaycareEventEntity extends GenericEntity {
     private DaycareEntity daycare;
 
     @Column(name = "START_DATE", nullable = false)
-    private Date startDate;
+    private LocalDateTime startDate;
 
     @Column(name = "END_DATE")
-    private Date endDate;
+    private LocalDateTime endDate;
 
     @Column(name = "TOTAL_HOURS")
-    private Double totalHours;
+    private BigDecimal totalHours;
+
+    @Column(name = "STATUS")
+    private String status;
 }
